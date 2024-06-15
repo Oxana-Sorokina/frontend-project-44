@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
-import checkingAnswer from "../src/even.js";
+import getUserAnswer from "../src/even.js";
 
-checkingAnswer;
+
+getUserAnswer();
