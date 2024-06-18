@@ -2,7 +2,7 @@ import readlineSync from 'readline-sync';
 import userName from './cli.js';
 
    
-const getUserAnswer = () => {
+const getUserGameEven = () => {
     const affAnswer = 'yes';
     const nayAnswer = 'no';
     let i = 0; 
@@ -42,4 +42,4 @@ const getUserAnswer = () => {
 };
 
 
-export default getUserAnswer;         
+export default getUserGameEven;         

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import getUserAnswer from "../src/even.js";
+import getUserGameEven from "../src/even.js";
 
 
-getUserAnswer();
+getUserGameEven();
