@@ -1,10 +1,10 @@
 import readlineSync from 'readline-sync';
-import userName from './cli.js';
+import getWelcomeUser from '../cli.js';
 
 const getUserCalculator = () => {
     let i = 0; 
     let count = 3;
-    userName;
+    const userName = getWelcomeUser();
     console.log('What is the result of the expression?');
 
     const getRandomInt = () => {
@@ -17,7 +17,7 @@ const getUserCalculator = () => {
         const randomNumber2 = getRandomInt();
         const operators = ['+', '-', '*'];
         const randomOperator = operators[Math.floor(Math.random() * operators.length)];
-        const randomExpression = `${randomNumber1} ${randomOperator} ${randomNumber2}`
+        const randomExpression = `${randomNumber1} ${randomOperator} ${randomNumber2}`;
         console.log(`Question: ${randomExpression}`);
         const userAnswerCalculator = readlineSync.question('Your answer: ');
 

@@ -1,5 +1,5 @@
 import readlineSync from 'readline-sync';
-import userName from './cli.js';
+import getWelcomeUser from '../cli.js';
 
    
 const getUserGameEven = () => {
@@ -7,7 +7,7 @@ const getUserGameEven = () => {
     const nayAnswer = 'no';
     let i = 0; 
     let count = 3;
-    userName;
+    const userName = getWelcomeUser();
     console.log('Answer "yes" if the number is even, otherwise answer "no".');
 
     const getRandomInt = () => {
