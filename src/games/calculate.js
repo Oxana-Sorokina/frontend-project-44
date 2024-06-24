@@ -1,49 +1,63 @@
-import readlineSync from 'readline-sync';
-import getWelcomeUser from '../cli.js';
-
-const getUserCalculator = () => {
-    let i = 0; 
-    let count = 3;
-    const userName = getWelcomeUser();
-    console.log('What is the result of the expression?');
-
-    const getRandomInt = () => {
-        return Math.floor(Math.random() * 100) + 1;
-    }
-
+import getGameWithUser from '../index.js';
    
-    while (i < count) {
-        const randomNumber1 = getRandomInt();
-        const randomNumber2 = getRandomInt();
-        const operators = ['+', '-', '*'];
-        const randomOperator = operators[Math.floor(Math.random() * operators.length)];
-        const randomExpression = `${randomNumber1} ${randomOperator} ${randomNumber2}`;
-        console.log(`Question: ${randomExpression}`);
-        const userAnswerCalculator = readlineSync.question('Your answer: ');
+export const rules = 'What is the result of the expression?';
+    
+const getRandomInt = () => {
+    return Math.floor(Math.random() * 100) + 1;
+}
 
-        let correctAnswer;
-        if (randomOperator === '+') {
-            correctAnswer = randomNumber1 + randomNumber2;
-        } else if (randomOperator === '-') {
-            correctAnswer = randomNumber1 - randomNumber2;
-        } else {
-            correctAnswer = randomNumber1 * randomNumber2;
-        }
-       
-        if (parseInt(userAnswerCalculator, 10) === correctAnswer) {
-            console.log('Correct!');
-        } else {
-            console.log(`${userAnswerCalculator} is wrong answer ;(. Correct answer was ${correctAnswer}.\nLet's try again, ${userName}!`)
-            break; 
-        }
+export const generateQuestion = () => {
+    const randomNumber1 = getRandomInt();
+    const randomNumber2 = getRandomInt();
+    const operators = ['+', '-', '*'];
+    const randomOperator = operators[Math.floor(Math.random() * operators.length)];
+    return `${randomNumber1} ${randomOperator} ${randomNumber2}`;
+};
+        
+export const getUniqGame = (question) => {
+    const [randomNumber1, operator, randomNumber2] = question.split(' ');
+    let correctAnswer;
 
-          i++;
-
-          if (i === count) {
-            console.log (`Congratulations, ${userName}!`);
-          }
-        }
+    switch (operator) {
+        case '+':
+            correctAnswer = Number(randomNumber1) + Number(randomNumber2);
+            break;
+        case '-':
+            correctAnswer = Number(randomNumber1) - Number(randomNumber2);
+            break;
+        case '*':
+            correctAnswer = Number(randomNumber1) * Number(randomNumber2);
+            break;
     }
+    return correctAnswer.toString();
+};  
+ 
+export const checkAnswer = (userAnswer, correctAnswer) => {
+    return userAnswer === correctAnswer;
+};
+ 
+getGameWithUser();
 
 
-export default getUserCalculator;  
+
+
+
+//const getUserCalculator = () => {
+
+ //if (randomOperator === '+') {
+        //correctAnswer = randomNumber1 + randomNumber2;
+    //} else if (randomOperator === '-') {
+        //correctAnswer = randomNumber1 - randomNumber2;
+    //} else {
+        //correctAnswer = randomNumber1 * randomNumber2;
+    //}
+    //return correctAnswer.toString();
+//};
+
+
+//default:
+    //throw new Error(`Unknown operator: ${operator}`);
+
+//export default getUserCalculator;  
+
+//getGameWithUser(rules, generateQuestion, getUniqGame, checkAnswer);

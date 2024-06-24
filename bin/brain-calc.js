@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import getUserCalculator from "../src/games/calculate.js";
+import {rules, generateQuestion, getUniqGame, checkAnswer} from "../src/games/calculate.js";
 
-getUserCalculator();
+getGameWithUser(rules, generateQuestion, getUniqGame, checkAnswer);

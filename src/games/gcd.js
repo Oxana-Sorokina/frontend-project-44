@@ -1,10 +1,10 @@
 import readlineSync from 'readline-sync';
-import userName from '../cli.js';
+import getWelcomeUser from '../cli.js';
 
 const getUserGameGcd = () => {
     let i = 0; 
     let count = 3;
-    userName;
+    const userName = getWelcomeUser();
     console.log('Find the greatest common divisor of given numbers.');
 
     const getRandomInt = () => {
