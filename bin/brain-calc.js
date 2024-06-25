@@ -1,5 +1,9 @@
 #!/usr/bin/env node
 
-import {rules, generateQuestion, getUniqGame, checkAnswer} from "../src/games/calculate.js";
+import "../src/games/calculate.js";
 
-getGameWithUser(rules, generateQuestion, getUniqGame, checkAnswer);
+
+
+//import getGameWithUser from "../src/games/calculate.js";
+
+//getGameWithUser(rules, generateQuestion, getUniqGame, checkAnswer);

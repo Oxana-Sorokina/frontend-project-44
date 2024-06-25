@@ -17,8 +17,8 @@ const getGameWithUser = (rules, generateQuestion, getUniqGame, checkAnswer) => {
         if (checkAnswer(userAnswer, correctAnswer)) {
             console.log('Correct!');
         } else {
-            console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${correctAnswer}.\nLet's try again, ${userName}!`)
-            break;
+            console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${userName}!`)
+            return;
         }
         i++;
     }

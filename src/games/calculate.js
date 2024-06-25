@@ -1,12 +1,12 @@
 import getGameWithUser from '../index.js';
    
-export const rules = 'What is the result of the expression?';
+const rules = 'What is the result of the expression?';
     
 const getRandomInt = () => {
     return Math.floor(Math.random() * 100) + 1;
 }
 
-export const generateQuestion = () => {
+const generateQuestion = () => {
     const randomNumber1 = getRandomInt();
     const randomNumber2 = getRandomInt();
     const operators = ['+', '-', '*'];
@@ -14,7 +14,7 @@ export const generateQuestion = () => {
     return `${randomNumber1} ${randomOperator} ${randomNumber2}`;
 };
         
-export const getUniqGame = (question) => {
+const getUniqGame = (question) => {
     const [randomNumber1, operator, randomNumber2] = question.split(' ');
     let correctAnswer;
 
@@ -32,12 +32,11 @@ export const getUniqGame = (question) => {
     return correctAnswer.toString();
 };  
  
-export const checkAnswer = (userAnswer, correctAnswer) => {
+const checkAnswer = (userAnswer, correctAnswer) => {
     return userAnswer === correctAnswer;
 };
  
-getGameWithUser();
-
+getGameWithUser(rules, generateQuestion, getUniqGame, checkAnswer);
 
 
 
