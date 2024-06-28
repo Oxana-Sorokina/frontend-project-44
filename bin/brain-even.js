@@ -1,8 +1,6 @@
 #!/usr/bin/env node
 
-import  "../src/games/even.js";
+import getGameWithUser from "../src/index.js";
+import {rules, generateQuestion, getUniqGame, checkAnswer} from "../src/games/even.js";
 
-
-//import getGameWithUser from "../src/games/even.js";
-
-//getGameWithUser(rules, generateQuestion, getUniqGame, checkAnswer);
+getGameWithUser(rules, generateQuestion, getUniqGame, checkAnswer);

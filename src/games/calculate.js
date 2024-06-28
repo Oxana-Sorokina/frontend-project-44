@@ -1,12 +1,10 @@
-import getGameWithUser from '../index.js';
-   
-const rules = 'What is the result of the expression?';
+export const rules = 'What is the result of the expression?';
     
 const getRandomInt = () => {
     return Math.floor(Math.random() * 100) + 1;
 }
 
-const generateQuestion = () => {
+export const generateQuestion = () => {
     const randomNumber1 = getRandomInt();
     const randomNumber2 = getRandomInt();
     const operators = ['+', '-', '*'];
@@ -14,7 +12,7 @@ const generateQuestion = () => {
     return `${randomNumber1} ${randomOperator} ${randomNumber2}`;
 };
         
-const getUniqGame = (question) => {
+export const getUniqGame = (question) => {
     const [randomNumber1, operator, randomNumber2] = question.split(' ');
     let correctAnswer;
 
@@ -32,31 +30,6 @@ const getUniqGame = (question) => {
     return correctAnswer.toString();
 };  
  
-const checkAnswer = (userAnswer, correctAnswer) => {
+export const checkAnswer = (userAnswer, correctAnswer) => {
     return userAnswer === correctAnswer;
 };
- 
-getGameWithUser(rules, generateQuestion, getUniqGame, checkAnswer);
-
-
-
-
-//const getUserCalculator = () => {
-
- //if (randomOperator === '+') {
-        //correctAnswer = randomNumber1 + randomNumber2;
-    //} else if (randomOperator === '-') {
-        //correctAnswer = randomNumber1 - randomNumber2;
-    //} else {
-        //correctAnswer = randomNumber1 * randomNumber2;
-    //}
-    //return correctAnswer.toString();
-//};
-
-
-//default:
-    //throw new Error(`Unknown operator: ${operator}`);
-
-//export default getUserCalculator;  
-
-//getGameWithUser(rules, generateQuestion, getUniqGame, checkAnswer);
