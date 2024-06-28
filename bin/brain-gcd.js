@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-//import  from "../src/calculate.js";
+import getGameWithUser from "../src/index.js";
+import {rules, generateQuestion, getUniqGame, checkAnswer} from "../src/games/gcd.js";
 
-
-//вызов функции
+getGameWithUser(rules, generateQuestion, getUniqGame, checkAnswer);

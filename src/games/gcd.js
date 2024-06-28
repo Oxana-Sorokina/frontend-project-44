@@ -1,24 +1,30 @@
-import readlineSync from 'readline-sync';
-import getWelcomeUser from '../cli.js';
+export const rules = 'Find the greatest common divisor of given numbers.'
 
-const getUserGameGcd = () => {
-    let i = 0; 
-    let count = 3;
-    const userName = getWelcomeUser();
-    console.log('Find the greatest common divisor of given numbers.');
-
-    const getRandomInt = () => {
-        return Math.floor(Math.random() * 100) + 1;
-    }
-
-
-    while (i < count) {
-        const randomNumber1 = getRandomInt();
-        const randomNumber2 = getRandomInt();
-        const randomNumbers= `${randomNumber1} ${randomNumber2}`;
-        console.log(`Question: ${randomExpression}`);
+const getRandomInt = () => {
+    return Math.floor(Math.random() * 100) + 1;
 }
 
-getUserGameGcd();
+export const generateQuestion = () => {
+    const randomNumber1 = getRandomInt();
+    const randomNumber2 = getRandomInt();
+    return `${randomNumber1} ${randomNumber2}`;
+};
 
-export default getUserGameGcd;  
+export const getUniqGame = (question) => {
+    const [randomNumber1, randomNumber2] = question.split(' '); // возвращает массив строк
+    let number1 = parseInt(randomNumber1, 10); //преобразуем в целое число
+    let number2 = parseInt(randomNumber2, 10); //преобразуем в целое число
+    //цикл продолжается, пока числа не станут равны нулю
+    while (number1 !== 0 && number2 !== 0){
+        if (number1 > number2) { //если первое больше второго, то первому присваиваем остаток от деления первого на второе
+            number1 = number1 % number2;
+        } else {
+            number2 = number2 % number1;//наоборот
+        }
+      }
+      return number1 || number2; //оставшееся не нулевое число и есть НОД
+};
+
+export const checkAnswer = (userAnswer, correctAnswer) => {
+    return parseInt(userAnswer, 10) === correctAnswer;
+};
