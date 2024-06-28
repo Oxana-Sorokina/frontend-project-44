@@ -1,8 +1,8 @@
-export const rules = 'Find the greatest common divisor of given numbers.'
+export const rules = 'Find the greatest common divisor of given numbers.';
 
 const getRandomInt = () => {
     return Math.floor(Math.random() * 100) + 1;
-}
+};
 
 export const generateQuestion = () => {
     const randomNumber1 = getRandomInt();

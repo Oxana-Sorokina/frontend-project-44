@@ -17,4 +17,4 @@ export const getUniqGame = (question) => {
 
 export const checkAnswer = (userAnswer, correctAnswer) => {
     return userAnswer === correctAnswer;
-}
+};
