@@ -1,7 +1,7 @@
 import readlineSync from 'readline-sync';
 import getWelcomeUser from './cli.js';
 
-const getGameWithUser = (rules, generateQuestion, getUniqGame, checkAnswer) => {
+const getGameWithUser = (rules, getUniqGame, checkAnswer) => {
     const userName = getWelcomeUser();
     console.log(rules);
 
@@ -9,15 +9,14 @@ const getGameWithUser = (rules, generateQuestion, getUniqGame, checkAnswer) => {
     let count = 3;
 
     while (i < count) {
-        const question = generateQuestion();
-        const correctAnswer = getUniqGame(question);
-        console.log(`Question: ${question}`);
+        const gameRound = getUniqGame();
+        console.log(`Question: ${gameRound.question}`);
         const userAnswer = readlineSync.question('Your answer: ');
 
-        if (checkAnswer(userAnswer, correctAnswer)) {
+        if (checkAnswer(userAnswer, gameRound.correctAnswer)) {
             console.log('Correct!');
         } else {
-            console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${userName}!`)
+            console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${gameRound.correctAnswer}'.\nLet's try again, ${userName}!`)
             return;
         }
         i++;

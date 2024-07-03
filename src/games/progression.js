@@ -15,7 +15,7 @@ const getRandomLength = () => {
     return Math.floor(Math.random() * 6) + 5;
 };
 
-export const generateQuestion = () => {
+export const getUniqGame = () => {
     const randomNumber = getRandomInt();
     const randomStep = getRandomStep();
     const randomLength = getRandomLength();
@@ -28,27 +28,15 @@ export const generateQuestion = () => {
             result.push(progressionMember);
     }
 
-    const removedElement = result[randomIndex];
-
-    result[randomIndex] = '..';
-
-    const progressionString = result.join(' ');
-
+    const correctAnswer = result.splice(randomIndex, 1, '..').join(' ');
+    const question = result.join(' '); 
+    
     return {
-    progression: progressionString,
-    removedElement
+        question,
+        correctAnswer
     };
 };
 
-export const getUniqGame = (question) => {
-    return question.removedElement;
-};
-
 export const checkAnswer = (userAnswer, correctAnswer) => {
-    return parseInt(userAnswer, 10) === correctAnswer;
+    return userAnswer === correctAnswer;
 };
-
-
-//result.splice(randomIndex, 1, '..');
-//return result.join(' '); 
-//нужно положить в переменную число, которое он заменил точками и потом мы это число сравним с ответом пользователя

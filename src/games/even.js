@@ -4,16 +4,18 @@ const getRandomInt = () => {
     return Math.floor(Math.random() * 100) + 1;
 };
 
-export const generateQuestion = () => {
-    return getRandomInt().toString();  
-};
+export const getUniqGame = () => {
+    const question = getRandomInt();  
 
-export const getUniqGame = (question) => {
     const affAnswer = 'yes';
     const nayAnswer = 'no';
-    const number = parseInt(question, 10);
-    return number % 2 === 0 ? affAnswer : nayAnswer;
-}
+    const correctAnswer = question % 2 === 0 ? affAnswer : nayAnswer;
+
+    return {
+        question,
+        correctAnswer
+    };
+};
 
 export const checkAnswer = (userAnswer, correctAnswer) => {
     return userAnswer === correctAnswer;

@@ -4,30 +4,32 @@ const getRandomInt = () => {
     return Math.floor(Math.random() * 100) + 1;
 }
 
-export const generateQuestion = () => {
+export const getUniqGame = () => {
     const randomNumber1 = getRandomInt();
     const randomNumber2 = getRandomInt();
     const operators = ['+', '-', '*'];
     const randomOperator = operators[Math.floor(Math.random() * operators.length)];
-    return `${randomNumber1} ${randomOperator} ${randomNumber2}`;
-};
-        
-export const getUniqGame = (question) => {
-    const [randomNumber1, operator, randomNumber2] = question.split(' ');
-    let correctAnswer;
+    const question = `${randomNumber1} ${randomOperator} ${randomNumber2}`;
 
-    switch (operator) {
+    let expressionOptions;
+
+    switch (randomOperator) {
         case '+':
-            correctAnswer = Number(randomNumber1) + Number(randomNumber2);
+            expressionOptions = Number(randomNumber1) + Number(randomNumber2);
             break;
         case '-':
-            correctAnswer = Number(randomNumber1) - Number(randomNumber2);
+            expressionOptions = Number(randomNumber1) - Number(randomNumber2);
             break;
         case '*':
-            correctAnswer = Number(randomNumber1) * Number(randomNumber2);
+            expressionOptions = Number(randomNumber1) * Number(randomNumber2);
             break;
     }
-    return correctAnswer.toString();
+    const correctAnswer = expressionOptions.toString();
+
+    return {
+        question,
+        correctAnswer
+    };
 };  
  
 export const checkAnswer = (userAnswer, correctAnswer) => {
