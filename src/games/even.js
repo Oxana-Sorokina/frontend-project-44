@@ -1,4 +1,4 @@
-export const rules = 'Answer "yes" if the number is even, otherwise answer "no"';
+export const rules = 'Answer "yes" if the number is even, otherwise answer "no".';
 
 const getRandomInt = () => {
     return Math.floor(Math.random() * 100) + 1;
