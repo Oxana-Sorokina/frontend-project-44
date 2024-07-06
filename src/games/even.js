@@ -1,22 +1,21 @@
-export const rules = 'Answer "yes" if the number is even, otherwise answer "no".';
+import getRandomInt from '../utils/random-number.js';
 
-const getRandomInt = () => {
-    return Math.floor(Math.random() * 100) + 1;
-};
+export const rules =
+  'Answer "yes" if the number is even, otherwise answer "no".';
 
 export const getUniqGame = () => {
-    const question = getRandomInt();  
+  const question = getRandomInt(1, 100);
 
-    const affAnswer = 'yes';
-    const nayAnswer = 'no';
-    const correctAnswer = question % 2 === 0 ? affAnswer : nayAnswer;
+  const affAnswer = 'yes';
+  const nayAnswer = 'no';
+  const correctAnswer = question % 2 === 0 ? affAnswer : nayAnswer;
 
-    return {
-        question,
-        correctAnswer
-    };
+  return {
+    question,
+    correctAnswer,
+  };
 };
 
 export const checkAnswer = (userAnswer, correctAnswer) => {
-    return userAnswer === correctAnswer;
+  return userAnswer === correctAnswer;
 };
