@@ -6,7 +6,7 @@ const getGameWithUser = (rules, getUniqGame, checkAnswer) => {
   console.log(rules);
 
   let i = 0;
-  let count = 3;
+  const count = 3;
 
   while (i < count) {
     const gameRound = getUniqGame();

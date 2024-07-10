@@ -8,7 +8,7 @@ export const getUniqGame = () => {
   const randomLength = getRandomInt(5, 10);
   const randomIndex = Math.floor(Math.random() * randomLength);
   let progressionMember = randomNumber;
-  let result = [progressionMember];
+  const result = [progressionMember];
 
   for (let i = 1; i < randomLength; i += 1) {
     progressionMember += randomStep;
