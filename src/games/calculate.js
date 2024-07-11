@@ -6,13 +6,13 @@ export const getUniqGame = () => {
   const randomNumber1 = getRandomInt(2, 100);
   const randomNumber2 = getRandomInt(2, 100);
   const operators = ['+', '-', '*'];
-  const randomOperator =
-    operators[Math.floor(Math.random() * operators.length)];
+  const randomOperator = operators[Math.floor(Math.random() * operators.length)];
   const question = `${randomNumber1} ${randomOperator} ${randomNumber2}`;
 
   let calculationResult;
 
   switch (randomOperator) {
+    // no default
     case '+':
       calculationResult = Number(randomNumber1) + Number(randomNumber2);
       break;
@@ -31,6 +31,5 @@ export const getUniqGame = () => {
   };
 };
 
-export const checkAnswer = (userAnswer, correctAnswer) => {
-  return parseInt(userAnswer, 10) === correctAnswer;
+export const checkAnswer = (userAnswer, correctAnswer) => { return parseInt(userAnswer, 10) === correctAnswer;
 };

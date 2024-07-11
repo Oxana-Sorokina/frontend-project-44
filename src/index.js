@@ -21,7 +21,7 @@ const getGameWithUser = (rules, getUniqGame, checkAnswer) => {
       );
       return;
     }
-    i++;
+    i = i + 1;
   }
   console.log(`Congratulations, ${userName}!`);
 };

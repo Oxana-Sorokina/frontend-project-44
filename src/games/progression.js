@@ -24,6 +24,5 @@ export const getUniqGame = () => {
   };
 };
 
-export const checkAnswer = (userAnswer, correctAnswer) => {
-  return userAnswer === correctAnswer;
+export const checkAnswer = (userAnswer, correctAnswer) => { return userAnswer === correctAnswer;
 };
