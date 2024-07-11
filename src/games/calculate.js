@@ -12,7 +12,7 @@ export const getUniqGame = () => {
   let calculationResult;
 
   switch (randomOperator) {
-    // no default
+    default: return;
     case '+':
       calculationResult = Number(randomNumber1) + Number(randomNumber2);
       break;
@@ -31,5 +31,4 @@ export const getUniqGame = () => {
   };
 };
 
-export const checkAnswer = (userAnswer, correctAnswer) => { return parseInt(userAnswer, 10) === correctAnswer;
-};
+export const checkAnswer = (userAnswer, correctAnswer) => parseInt(userAnswer, 10) === correctAnswer;
