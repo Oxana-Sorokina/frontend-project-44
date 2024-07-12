@@ -1,8 +1,8 @@
 import getRandomInt from '../utils/random-number.js';
 
-export const rules = 'What number is missing in the progression?';
+const rules = 'What number is missing in the progression?';
 
-export const getUniqGame = () => {
+const getUniqGame = () => {
   const randomNumber = getRandomInt(1, 100);
   const randomStep = getRandomInt(3, 20);
   const randomLength = getRandomInt(5, 10);
@@ -24,5 +24,6 @@ export const getUniqGame = () => {
   };
 };
 
-export const checkAnswer = (userAnswer, correctAnswer) => { return userAnswer === correctAnswer;
-};
+const checkAnswer = (userAnswer, correctAnswer) => userAnswer === correctAnswer;
+
+export { rules, getUniqGame, checkAnswer };

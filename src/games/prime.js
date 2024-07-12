@@ -1,18 +1,19 @@
 import getRandomInt from '../utils/random-number.js';
 
-export const rules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+const rules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
-export const getUniqGame = () => {
+const getUniqGame = () => {
   const question = getRandomInt(2, 100);
 
-  const isPrime = (question) => {
+  const isPrime = () => {
     const affAnswer = 'yes';
     const nayAnswer = 'no';
-    if (question < 2) {
+    const number = question;
+    if (number < 2) {
       return nayAnswer;
     }
-    for (let i = 2; i < question; i = i + 1) {
-      if (question % i === 0) {
+    for (let i = 2; i < number; i += 1) {
+      if (number % i === 0) {
         return nayAnswer;
       }
     }
@@ -27,5 +28,6 @@ export const getUniqGame = () => {
   };
 };
 
-export const checkAnswer = (userAnswer, correctAnswer) => { return userAnswer === correctAnswer;
-};
+const checkAnswer = (userAnswer, correctAnswer) => userAnswer === correctAnswer;
+
+export { rules, getUniqGame, checkAnswer };

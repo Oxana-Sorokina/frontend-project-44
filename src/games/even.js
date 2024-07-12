@@ -1,8 +1,8 @@
 import getRandomInt from '../utils/random-number.js';
 
-export const rules = 'Answer "yes" if the number is even, otherwise answer "no".';
+const rules = 'Answer "yes" if the number is even, otherwise answer "no".';
 
-export const getUniqGame = () => {
+const getUniqGame = () => {
   const question = getRandomInt(1, 100);
 
   const affAnswer = 'yes';
@@ -15,5 +15,6 @@ export const getUniqGame = () => {
   };
 };
 
-export const checkAnswer = (userAnswer, correctAnswer) => { return userAnswer === correctAnswer;
-};
+const checkAnswer = (userAnswer, correctAnswer) => userAnswer === correctAnswer;
+
+export { rules, getUniqGame, checkAnswer };
